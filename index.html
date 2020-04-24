@@ -120,11 +120,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
-      var baseImagePath = "./assets",
+      var urlParams = new URLSearchParams(window.location.search),
+        baseImagePath = "./assets",
         baseAudioPath = "./assets",
         audio = document.getElementById("audio"),
-        publication = 1,
-        imagePageNo = 2,
+        publication = urlParams.get('publication') || 1,
+        imagePageNo = urlParams.get('page', 16) || 2,
         audioPageNo = 2,
         playbackRate = 1,
         Constants = {
@@ -284,47 +285,6 @@ function checkKey(e) {
 
 }
 
-function insertParam2(key,value)
-{
-    key = encodeURIComponent(key); value = encodeURIComponent(value);
-
-    var s = document.location.search;
-    var kvp = key+"="+value;
-
-    var r = new RegExp("(&|\\?)"+key+"=[^\&]*");
-
-    s = s.replace(r,"$1"+kvp);
-
-    if(!RegExp.$1) {s += (s.length>0 ? '&' : '?') + kvp;};
-
-    //again, do what you will here
-    document.location.search = s;
-}
-
-
-function insertParam(key, value)
-{
-    key = encodeURI(key); value = encodeURI(value);
-
-    var kvp = document.location.search.substr(1).split('&');
-
-    var i=kvp.length; var x; while(i--)
-    {
-        x = kvp[i].split('=');
-
-        if (x[0]==key)
-        {
-            x[1] = value;
-            kvp[i] = x.join('=');
-            break;
-        }
-    }
-
-    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
-
-    //this will reload the page, it's likely better to store this until finished
-    document.location.search = kvp.join('&');
-}
 
     setPlaybackRate();
 
@@ -345,6 +305,10 @@ function insertParam(key, value)
     }
 
     function renderImage(){
+      urlParams.set('publication', publication);
+      urlParams.set('page', imagePageNo);
+      window.history.replaceState({}, '', `${location.pathname}?${urlParams}`);
+
       document.getElementById('pageNo').innerHTML="Page "+ imagePageNo;
 
       document.getElementById('image').src=""; // force loader to be seen
