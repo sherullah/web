@@ -382,7 +382,7 @@ function mSet(){audio.currentTime=dur.value}
 
     audio.onended = function() {
       next();
-      audioPageNo = imagePageNo;
+      audioPageNo = audioPageNo+1;
       play();
     };
     document.addEventListener('touchstart', handleTouchStart, false);
@@ -490,6 +490,9 @@ if ('serviceWorker' in navigator) {
 .action {
   height: 4em;
   width: 6em;
+}
+img {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;
 }
 
 #v {
