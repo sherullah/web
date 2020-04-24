@@ -347,6 +347,7 @@ function insertParam(key, value)
     function renderImage(){
       document.getElementById('pageNo').innerHTML="Page "+ imagePageNo;
 
+      document.getElementById('image').src=""; // force loader to be seen
       document.getElementById('image').src=baseImagePath + "/pages/"+publication+"/"+imagePageNo+".jpg";
     }
 
