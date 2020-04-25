@@ -1,106 +1,125 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="manifest" href="manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/assets/icon/app/144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <title>Sherullah Ibadat Adeyat Web</title>
-  </head>
-  <body>
-    <div id="v" >
-      <div id="top">
-        <div>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Sherullah Ibadat Adeyat</a>
 
-            <button class="navbar-toggler" ctype="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a  href="mailto:sherullahapp@gmail.com" style="font-size: 18px;">Feedback</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="manifest" href="manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icon/app/144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <title>Sherullah Ibadat Adeyat Web</title>
+</head>
+
+<body>
+  <div id="v">
+    <div id="top">
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Sherullah Ibadat Adeyat</a>
+
+          <button class="navbar-toggler" ctype="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="mailto:sherullahapp@gmail.com" style="font-size: 18px;">Feedback</a>
+              </li>
+            </ul>
           </div>
-        </div>
+        </nav>
       </div>
-
-      <div class="container" style="padding: 25;">
-        <ul class="nav nav-tabs nav-fill">
-          <li id="tab-bihori" class="nav-item">
-            <a class="nav-link active" href="#" onclick="switchPublication(1)">Bihori</a>
-          </li>
-          <li  id="tab-daska" class="nav-item">
-            <a class="nav-link" href="#" onclick="switchPublication(2)">Daska</a>
-          </li>
-          <li  id="tab-fajr" class="nav-item">
-            <a class="nav-link" href="#" onclick="switchPublication(3)">Fajr</a>
-          </li>
-        </ul>
-        <ul id="navigation-list" class="list-group">
-
-        </ul>
-
-      </div>
-      <div style="display: none;"><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-xBx38Y87dcC6c7y1-50.gif' border='0' alt='web counter free'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=xBx38Y87dcC6c7y1'></script><br><a href='https://meuip.page/qual-e-o-meu-ip/' target='_blank'></a></div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script>
-      var urlParams = new URLSearchParams(window.location.search),
-        baseImagePath = "./assets",
-        baseAudioPath = "./assets",
-        audio = document.getElementById("audio"),
-        publication =  urlParams.get('publication') || 1,
-        imagePageNo = 2,
-        audioPageNo = 2,
-        segments,
-        playbackRate = 1,
-        Constants = {
-          '1': {
-            pages: 118
-          },
-          '2': {
-            pages: 5
-          },
-          '3': {
-            pages: 20
-          }
-        };
+  </div>
 
-      initializeApp();
+  <div id="tabs" class="container" style="padding: 25;">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a id="tab-bihori" class="nav-link active" href="#1" onclick="switchPublication(1)">Bihori</a>
+      </li>
+      <li class="nav-item">
+        <a id="tab-daska" class="nav-link" href="#2" onclick="switchPublication(2)">Daska</a>
+      </li>
+      <li class="nav-item">
+        <a id="tab-fajr" class="nav-link" href="#3" onclick="switchPublication(3)">Fajr</a>
+      </li>
+    </ul>
+    <ul id="navigation-list" class="list-group">
+
+    </ul>
+
+  </div>
+  <div style="display: none;"><a href='https://www.counter12.com'><img
+        src='https://www.counter12.com/img-xBx38Y87dcC6c7y1-50.gif' border='0' alt='web counter free'></a>
+    <script type='text/javascript' src='https://www.counter12.com/ad.js?id=xBx38Y87dcC6c7y1'></script><br><a
+      href='https://meuip.page/qual-e-o-meu-ip/' target='_blank'></a></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search),
+      baseImagePath = "./assets",
+      baseAudioPath = "./assets",
+      audio = document.getElementById("audio"),
+      publication = parseInt(urlParams.get('publication')) || 1,
+      imagePageNo = 2,
+      audioPageNo = 2,
+      segments,
+      playbackRate = 1,
+      Constants = {
+        '1': {
+          pages: 118
+        },
+        '2': {
+          pages: 5
+        },
+        '3': {
+          pages: 20
+        }
+      };
+
+    initializeApp();
+
 
 
     function initializeApp() {
-      buildSegmentsArray();
-      cleanList();
-      for(i=0; i< segments['1'].length; i++) {
-        appendList(segments['1'][i][1], segments['1'][i][2]);
+      // Set current tab active
+      $('.nav-tabs a[href="#' + publication + '"]').tab('show');
 
-      }
+      loadSegmentsJSON((response) => {
+        segments = JSON.parse(response);
+
+        cleanList();
+        for (i = 0; i < segments[publication].length; i++) {
+          appendList(segments[publication][i].name, segments[publication][i].start_page);
+        }
+      });
     }
 
-    $('li a').click(function(e) {
-        e.preventDefault();
-        $('a').removeClass('active');
-        $(this).addClass('active');
+    $('li a').click(function (e) {
+      e.preventDefault();
+      $('a').removeClass('active');
+      $(this).addClass('active');
     });
 
 
     function switchPublication(newPublication) {
-        publication = newPublication;
-        initializeApp();
-      }
+      publication = newPublication;
+      initializeApp();
+    }
 
     function listClicked(page) {
-      window.location = 'player.html?publication='+publication+'&page='+page;
+      window.location = 'player.html?publication=' + publication + '&page=' + page;
     }
 
     function cleanList() {
@@ -108,87 +127,59 @@
     }
 
     function appendList(name, page) {
-        var ul = document.getElementById("navigation-list");
-        var li = document.createElement("li");
-        var badge = document.createElement("span");
-        badge.setAttribute("class", "badge badge-primary badge-pill"); // added l
-        badge.innerHTML = page;
+      var ul = document.getElementById("navigation-list");
+      var li = document.createElement("li");
+      var badge = document.createElement("span");
+      badge.setAttribute("class", "badge badge-primary badge-pill"); // added l
+      badge.innerHTML = page;
 
-        li.appendChild(document.createTextNode(name));
-        li.appendChild(badge);
+      li.appendChild(document.createTextNode(name));
+      li.appendChild(badge);
 
-        li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center"); // added line
-        li.setAttribute("onclick", "listClicked("+page+")"); // added line
+      li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center"); // added line
+      li.setAttribute("onclick", "listClicked(" + page + ")"); // added line
 
-        ul.appendChild(li);
-      }
-
-      function buildSegmentsArray() {
-        segments = {
-          1: [],
-          2: [],
-          3: []
-        };
-
-        if(publication == 1) {
-          segments['1'].push([1, "Salaat Istiftah", 2, 11]);
-          segments['1'].push([2, "Salaat Nisful Lail", 12, 30]);
-          segments['1'].push([3, "Salaat Magferatiz Zunoob", 30, 39]);
-          segments['1'].push([4, "Qadail Hawaij", 39, 54]);
-          segments['1'].push([5, "Salaat Tahajjud", 55, 70]);
-          segments['1'].push([6, "Salaat Wahshatil Quboor", 70, 79]);
-          segments['1'].push([7, "Salaat Kashfil Hamme Walgamme", 79, 83]);
-          segments['1'].push([8, "Salaat Talabul Riskil Waseye", 83, 87]);
-          segments['1'].push([9, "Salaat Talabul Afeyat", 87, 92]);
-          segments['1'].push([10,"Salaat Noorul Qabr", 92, 95]);
-          segments['1'].push([11,"Salaat Khatemal Khair", 95, 99]);
-          segments['1'].push([12,"Salaat Quboolas Salaate Wasayaam",99, 102]);
-          segments['1'].push([13,"Salaat Shafe",102, 999]);
-          segments['1'].push([14,"Salaat Watr",103, 105]);
-          segments['1'].push([15,"Salaat Juloos",105, 113]);
-          segments['1'].push([16,"Salaat Motiwalat",117, 118]);
-        } else if(publication == 2){
-          segments['1'].push([1, "Daska 1 First Dua", 2, 11]);
-          segments['1'].push([2, "Daska 1 Second Dua", 12, 30]);
-          segments['1'].push([3, "Daska 2 First Dua", 30, 39]);
-          segments['1'].push([4, "Daska 2 Second Dua", 39, 54]);
-          segments['1'].push([5, "Daska 3 First Dua", 55, 70]);
-          segments['1'].push([6, "Daska 3 Second Dua", 55, 70]);
-
-        }
-        else if(publication == 3){
-          segments['1'].push([1, "Dua", 2, 13]);
-          segments['1'].push([2, "Roza ni neeyat", 14, 16]);
-          segments['1'].push([3, "Fehwah", 17, 30]);
-        }
-
+      ul.appendChild(li);
     }
-    function zeroFill( number, width )
-    {
+
+    function zeroFill(number, width) {
       width -= number.toString().length;
-      if ( width > 0 )
-      {
-        return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
+      if (width > 0) {
+        return new Array(width + (/\./.test(number) ? 2 : 1)).join('0') + number;
       }
       return number + ""; // always return a string
     }
 
     if ('serviceWorker' in navigator) {
-        console.log("Will the service worker register?");
-        navigator.serviceWorker.register('service-worker.js')
-          .then(function(reg){
-            console.log("Yes, it did.");
-        }).catch(function(err) {
-            console.log("No it didn't. This happened:", err)
+      console.log("Will the service worker register?");
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function (reg) {
+          console.log("Yes, it did.");
+        }).catch(function (err) {
+          console.log("No it didn't. This happened:", err)
         });
-      }
-    </script>
-    <style>
+    }
 
-#v {
-  z-index: 1;
-  text-align: center
-}
-    </style>
-  </body>
+    function loadSegmentsJSON(callback) {
+      var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+      xobj.open('GET', './assets/data/segments.json', true); // Replace 'my_data' with the path to your file
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+          callback(xobj.responseText);
+        }
+      };
+      xobj.send(null);
+    }
+
+  </script>
+  <style>
+    #v {
+      z-index: 1;
+      text-align: center
+    }
+  </style>
+</body>
+
 </html>
