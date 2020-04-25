@@ -58,7 +58,7 @@
         baseImagePath = "./assets",
         baseAudioPath = "./assets",
         audio = document.getElementById("audio"),
-        publication =  1,
+        publication =  urlParams.get('publication') || 1,
         imagePageNo = 2,
         audioPageNo = 2,
         segments,
