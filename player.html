@@ -152,7 +152,7 @@
 
           audioPageNo = imagePageNo;
           audio.autoplay = true;
-          document.getElementById('playerState').innerHTML =  'Playing Page '+ audioPageNo;
+          document.getElementById('playerState').innerHTML =  'Pause';
         }
         audio.src= baseAudioPath+"/audio/"+publication+"/Page"+zeroFill(audioPageNo, 3)+".mp3"
         setPlaybackRate();
@@ -160,7 +160,7 @@
 
       function updatePlayerState() {
         if(!audio.paused) {
-          document.getElementById('playerState').innerHTML = 'Playing Page '+ audioPageNo;
+          document.getElementById('playerState').innerHTML = 'Pause';
         } else {
           document.getElementById('playerState').innerHTML = 'Play';
         }
