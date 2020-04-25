@@ -84,13 +84,13 @@
           <div class="row" style="display: flex; align-items: center; margin: 10;">
             <audio id="audio" onloadedmetadata="resetSeekbar()" ontimeupdate="updateSeekbar()"></audio>
 
-            <div id="currentTime" class="col-2">
+            <div id="currentTime" class="col-2"  style="color:white;">
               00:00
             </div>
-            <div class="col-8">
+            <div class="col-8" >
               <input id="seekbar" type="range" name="rng" min="0" step="0.25" value="0" onchange="seek()" style="width: 100%">
             </div>
-            <div id="duration" class="col-2">
+            <div id="duration" class="col-2"  style="color:white;">
                 00:00
             </div>
           </div>
