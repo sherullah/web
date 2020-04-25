@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/assets/icon/app/144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -14,6 +15,9 @@
       <div id="top">
         <div class="overlay top">
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <button type="button" class="btn btn-outline" onclick="openList()"><i class="fas fa-arrow-left"></i></button>
+
+
             <a class="navbar-brand" href="#">Sherullah Ibadat Adeyat</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +45,6 @@
           <div class="container">
             <div class="row">
               <div class="col-4">
-                <button type="button" class="btn btn-secondary" onclick="openList()">Back to list</button>
               </div>
               <div class="col-4">
                 <button type="button" id="pageNo" class="btn btn-link" onclick="gotopagePrompt()">Page 1</button>
@@ -461,6 +464,9 @@ if ('serviceWorker' in navigator) {
 }
 img {
   background: url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;
+}
+.fa-arrow-left {
+  color: white;
 }
 
 #v {

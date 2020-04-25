@@ -21,15 +21,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#" onclick="switchPublication(1)">Bihori <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="switchPublication(2)">Daska</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="switchPublication(3)">Fajr</a>
-                </li>
                 <li class="nav-item">
                   <a  href="mailto:sherullahapp@gmail.com" style="font-size: 18px;">Feedback</a>
                 </li>
@@ -39,7 +30,19 @@
           </div>
         </div>
       </div>
-      <div class="container">
+
+      <div class="container" style="padding: 25;">
+        <ul class="nav nav-tabs nav-fill">
+          <li id="tab-bihori" class="nav-item">
+            <a class="nav-link active" href="#" onclick="switchPublication(1)">Bihori</a>
+          </li>
+          <li  id="tab-daska" class="nav-item">
+            <a class="nav-link" href="#" onclick="switchPublication(2)">Daska</a>
+          </li>
+          <li  id="tab-fajr" class="nav-item">
+            <a class="nav-link" href="#" onclick="switchPublication(3)">Fajr</a>
+          </li>
+        </ul>
         <ul id="navigation-list" class="list-group">
 
         </ul>
@@ -54,8 +57,8 @@
         baseImagePath = "./assets",
         baseAudioPath = "./assets",
         audio = document.getElementById("audio"),
-        publication = urlParams.get('publication') || 1,
-        imagePageNo = urlParams.get('page', 16) || 2,
+        publication =  1,
+        imagePageNo = 2,
         audioPageNo = 2,
         segments,
         playbackRate = 1,
@@ -74,22 +77,43 @@
       initializeApp();
 
     function initializeApp() {
-
       buildSegmentsArray();
+      cleanList();
       for(i=0; i< segments['1'].length; i++) {
         appendList(segments['1'][i][1], segments['1'][i][2]);
       }
     }
 
+    $('li a').click(function(e) {
+        e.preventDefault();
+        $('a').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    function switchPublication(newPublication) {
+        publication = newPublication;
+        initializeApp();
+      }
+
     function listClicked(page) {
-      window.location = '/player.html?publication=1&page='+page;
+      window.location = '/player.html?publication='+publication+'&page='+page;
+    }
+
+    function cleanList() {
+      document.getElementById("navigation-list").innerHTML = '';
     }
 
     function appendList(name, page) {
         var ul = document.getElementById("navigation-list");
         var li = document.createElement("li");
+        var badge = document.createElement("span");
+        badge.setAttribute("class", "badge badge-primary badge-pill"); // added l
+        badge.innerHTML = page;
+
         li.appendChild(document.createTextNode(name));
-        li.setAttribute("class", "list-group-item"); // added line
+        li.appendChild(badge);
+
+        li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center"); // added line
         li.setAttribute("onclick", "listClicked("+page+")"); // added line
 
         ul.appendChild(li);
@@ -118,7 +142,7 @@
           segments['1'].push([13,"Salaat Shafe",102, 999]);
           segments['1'].push([14,"Salaat Watr",103, 105]);
           segments['1'].push([15,"Salaat Juloos",105, 113]);
-          segments['1'].push([16,"Salaat Motiwalat",17, 118]);
+          segments['1'].push([16,"Salaat Motiwalat",117, 118]);
         } else if(publication == 2){
           segments['1'].push([1, "Daska 1 First Dua", 2, 11]);
           segments['1'].push([2, "Daska 1 Second Dua", 12, 30]);
@@ -127,6 +151,11 @@
           segments['1'].push([5, "Daska 3 First Dua", 55, 70]);
           segments['1'].push([6, "Daska 3 Second Dua", 55, 70]);
 
+        }
+        else if(publication == 3){
+          segments['1'].push([1, "Dua", 2, 13]);
+          segments['1'].push([2, "Roza ni neeyat", 14, 16]);
+          segments['1'].push([3, "Fehwah", 17, 30]);
         }
 
     }
