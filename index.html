@@ -56,7 +56,9 @@
       <div id="bottom">
         <div class="overlay bottom">
           <div class="row">
-            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <p id="playerState"></p>
+            </div>
             <div class="col-md-4">
               <div class="dropdown">
                 <button id="speed" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,7 +104,7 @@
             </div>
             <div class="col-3">
               <div>
-              <button id="playerState" type="button" class="btn btn-secondary action" onclick="togglePlayback()">Play</button>
+              <button type="button" class="btn btn-secondary action" onclick="togglePlayback()">Play/ pause</button>
               </div>
             </div>
             <div class="col-3">
@@ -147,7 +149,7 @@
 
           audioPageNo = imagePageNo;
           audio.autoplay = true;
-          document.getElementById('playerState').innerHTML =  'Playing Page '+ audioPageNo;
+          document.getElementById('playerState').innerHTML =  'Now Playing Page '+ audioPageNo;
         }
         audio.src= baseAudioPath+"/audio/"+publication+"/Page"+zeroFill(audioPageNo, 3)+".mp3"
         setPlaybackRate();
@@ -155,9 +157,9 @@
 
       function updatePlayerState() {
         if(!audio.paused) {
-          document.getElementById('playerState').innerHTML = 'Playing Page '+ audioPageNo;
+          document.getElementById('playerState').innerHTML = 'Now Playing Page '+ audioPageNo;
         } else {
-          document.getElementById('playerState').innerHTML = 'Play';
+          document.getElementById('playerState').innerHTML = 'Paused';
         }
       }
 
