@@ -46,6 +46,7 @@
         <ul id="navigation-list" class="list-group">
 
         </ul>
+
       </div>
       <div style="display: none;"><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-xBx38Y87dcC6c7y1-50.gif' border='0' alt='web counter free'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=xBx38Y87dcC6c7y1'></script><br><a href='https://meuip.page/qual-e-o-meu-ip/' target='_blank'></a></div>
     </div>
@@ -76,11 +77,13 @@
 
       initializeApp();
 
+
     function initializeApp() {
       buildSegmentsArray();
       cleanList();
       for(i=0; i< segments['1'].length; i++) {
         appendList(segments['1'][i][1], segments['1'][i][2]);
+
       }
     }
 
@@ -89,6 +92,7 @@
         $('a').removeClass('active');
         $(this).addClass('active');
     });
+
 
     function switchPublication(newPublication) {
         publication = newPublication;
