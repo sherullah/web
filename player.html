@@ -129,8 +129,8 @@
         baseImagePath = "./assets",
         baseAudioPath = "./assets",
         audio = document.getElementById("audio"),
-        publication = urlParams.get('publication') || 1,
-        imagePageNo = urlParams.get('page', 16) || 2,
+        publication = parseInt(urlParams.get('publication')) || 1,
+        imagePageNo = parseInt(urlParams.get('page', 16)) || 2,
         audioPageNo = 2,
         playbackRate = 1,
         Constants = {
