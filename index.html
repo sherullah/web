@@ -66,6 +66,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
   <script>
     var urlParams = new URLSearchParams(window.location.search),
       baseImagePath = "./assets",
@@ -74,7 +75,7 @@
       publication = parseInt(urlParams.get('publication')) || 1,
       imagePageNo = 2,
       audioPageNo = 2,
-      segments,
+      ibadatCollection,
       playbackRate = 1,
       Constants = {
         '1': {
@@ -90,19 +91,21 @@
 
     initializeApp();
 
-
-
     function initializeApp() {
       // Set current tab active
       $('.nav-tabs a[href="#' + publication + '"]').tab('show');
 
       loadSegmentsJSON((response) => {
-        segments = JSON.parse(response);
+        ibadatCollection = JSON.parse(response);
 
         cleanList();
-        for (i = 0; i < segments[publication].length; i++) {
-          appendList(segments[publication][i].name, segments[publication][i].start_page);
-        }
+        _.each(ibadatCollection.publications, (pub) => {
+          if(pub.id == publication) {
+            _.each(pub.segments, (segment) => {
+            appendList(segment.name, segment.start_page);
+          })
+          }
+        });
       });
     }
 
