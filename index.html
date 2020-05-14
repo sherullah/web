@@ -41,7 +41,7 @@
         <a id="tab-bihori" class="nav-link active" href="#1" onclick="switchPublication(1)">Bihori</a>
       </li>
       <li class="nav-item">
-        <a id="tab-daska" class="nav-link" href="#2" onclick="switchPublication(2)">Daska</a>
+        <a id="tab-daska" class="nav-link" href="#2" onclick="switchPublication(7)">3rd Daska/ Wada</a>
       </li>
       <li class="nav-item">
         <a id="tab-fajr" class="nav-link" href="#5" onclick="switchPublication(5)">Fajr</a>
@@ -52,8 +52,9 @@
         <li class="nav-item">
         <a id="tab-bihori-new" class="nav-link" href="#6" onclick="switchPublication(6)">Mohta Bawisa</a>
       </li>
+
         <li class="nav-item">
-        <a id="tab-bihori-new" class="nav-link" href="#7" onclick="switchPublication(7)">Nana Bawisa</a>
+        <a id="tab-bihori-new" class="nav-link" href="#7" onclick="switchPublication(8)">Bihori Juzz 2</a>
       </li>
     </ul>
     <ul id="navigation-list" class="list-group">
@@ -90,9 +91,6 @@
         '1': {
           pages: 118
         },
-        '2': {
-          pages: 14
-        },
         '5': {
           pages: 20
         },
@@ -104,84 +102,12 @@
         },
          '7': {
           pages: 297
+        },
+         '8': {
+          pages: 282
         }
       };
 
-let x = {
-    "id": 6,
-    "name": "3rd Daska Duas/ Wada",
-    "segments": [
-        {
-            "id": 1,
-            "name": "3rd Daska 1st Dua",
-            "start_page": 1,
-            "end_page": 8
-        },
-        {
-            "id": 2,
-            "name": "21 mi 3rd Daska 2nd Dua",
-            "start_page": 9,
-            "end_page": 38
-        },
-        {
-            "id": 3,
-            "name": "22mi 1st dua (page 1)",
-            "start_page": 39,
-            "end_page": 46
-        },
-        {
-            "id": 4,
-            "name": "23mi 5th Dua (page 34)",
-            "start_page": 47,
-            "end_page": 49
-        },
-        {
-            "id": 5,
-            "name": "24mi 12th Dua (page 112)",
-            "start_page": 50,
-            "end_page": 52
-        },
-        {
-            "id": 6,
-            "name": "25mi 13th Dua (page 115)",
-            "start_page": 53,
-            "end_page": 57
-        },
-        {
-            "id": 7,
-            "name": "26mi 15th Dua (page 130)",
-            "start_page": 58,
-            "end_page": 61
-        },
-        {
-            "id": 8,
-            "name": "27mi 19th Dua (page 165)",
-            "start_page": 62,
-            "end_page": 65
-        },
-        {
-            "id": 9,
-            "name": "28mi 20th Dua (page 169)",
-            "start_page": 66,
-            "end_page": 69
-        },
-        {
-            "id": 10,
-            "name": "29mi 25th Dua (page 188)",
-            "start_page": 70,
-            "end_page": 73
-        },
-        {
-            "id": 11,
-            "name": "Wada",
-            "start_page": 74,
-            "end_page": 125
-        }
-    ],
-    "pageCount": 125
-};
-
-console.log(JSON.stringify(x));
 
     initializeApp();
 
@@ -212,6 +138,10 @@ console.log(JSON.stringify(x));
     function switchPublication(newPublication) {
       publication = newPublication;
       initializeApp();
+
+      if(newPublication ==8) {
+        alert("Audio for bihori juzz 2 is not available yet");
+      }
     }
 
     function listClicked(page) {
