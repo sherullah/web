@@ -50,6 +50,23 @@
              <li class="nav-item">
                 <a class="nav-link" href="#" onclick="switchPublication(8)">Bihori Juzz 2</a>
               </li>
+
+
+      <li class="nav-item">
+        <a id="tab-bihori-new" class="nav-link" href="#9" onclick="switchPublication(9)">Munajaat Shareef 1441H</a>
+      </li>
+
+      <li class="nav-item">
+        <a id="tab-bihori-new" class="nav-link" href="#10" onclick="switchPublication(10)">Lailatul Qadr Salaam</a>
+      </li>
+
+      <li class="nav-item">
+        <a id="tab-bihori-new" class="nav-link" href="#12" onclick="switchPublication(12)">Eid ul Fitr</a>
+      </li>
+
+            <li class="nav-item">
+        <a id="tab-bihori-new" class="nav-link" href="#13" onclick="switchPublication(13)">Duas</a>
+      </li>
               <li class="nav-item">
                 <a href="mailto:sherullahapp@gmail.com" style="font-size: 18px;">Feedback</a>
 
@@ -238,11 +255,7 @@
 
       page = parseInt(page);
 
-      if (page > 0 && page <= Constants[publication].pages) {
-        gotoPage(page);
-      } else {
-        alert('Invalid page.');
-      }
+      gotoPage(page);
     }
 
     function playThisPage() {
@@ -341,7 +354,7 @@
 
     function gotoPage(page) {
       if (page <= 1) return;
-      if (page > Constants[publication].pages) return;
+      if ( Constants[publication] && page > Constants[publication].pages) return;
 
       imagePageNo = page;
       renderImage();
@@ -359,7 +372,7 @@
     }
 
     function next() {
-      if (imagePageNo > Constants[publication].pages) {
+      if ( Constants[publication] && imagePageNo > Constants[publication].pages) {
         return;
       }
 
