@@ -41,7 +41,10 @@
         <a id="tab-bihori" class="nav-link active" href="#1" onclick="switchPublication(1)">Bihori</a>
       </li>
       <li class="nav-item">
-        <a id="tab-daska" class="nav-link" href="#2" onclick="switchPublication(7)">3rd Daska/ Wada</a>
+        <a id="tab-daska" class="nav-link" href="#2" onclick="switchPublication(2)">Zohr Daska Duas</a>
+      </li>
+      <li class="nav-item">
+        <a id="tab-daska-other" class="nav-link" href="#7" onclick="switchPublication(7)">Other 3rd Daska/ Wada</a>
       </li>
       <li class="nav-item">
         <a id="tab-fajr" class="nav-link" href="#5" onclick="switchPublication(5)">Fajr</a>
@@ -137,6 +140,7 @@
 
         cleanList();
         _.each(ibadatCollection.publications, (pub) => {
+          console.log(publication);
           if(pub.id == publication) {
             _.each(pub.segments, (segment) => {
             appendList(segment.name, segment.start_page);
